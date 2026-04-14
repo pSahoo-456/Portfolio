@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 226, 232, 240;
+  --background-start-rgb: 10, 15, 30;
+  --background-end-rgb: 10, 15, 30;
+  --cyan: #00d4ff;
+  --violet: #7c3aed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: var(--font-syne), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0f1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00a8cc;
+}
+
+/* Grain Texture Overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Glow Effects */
+.glow-cyan {
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
+              0 0 20px rgba(0, 212, 255, 0.3),
+              0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
+               0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card Hover Glow */
+.card-glow {
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5),
+              0 0 40px rgba(0, 212, 255, 0.3);
+  border-color: #00d4ff;
+}
+
+/* Utility Classes */
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .heading-primary {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+  
+  .heading-secondary {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+  }
+  
+  .text-body {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+}
