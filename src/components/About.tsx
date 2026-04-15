@@ -63,20 +63,24 @@ export default function About() {
               Who am I?
             </h3>
             <p className="text-body text-gray-300 mb-6 leading-relaxed">
-              I'm currently pursuing a Bachelor of Technology at GIFT Autonomous, Bhubaneswar. 
-              A dedicated researcher and engineer, he has completed prestigious research and technical internships 
-              at the National Institute of Technology (NIT), Rourkela, and the Integrated Test Range, DRDO. 
-              His current technical focus lies in Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), 
-              and Deep Learning, having already authored a published research paper in IEEE Xplore regarding 
-              advanced facial emotion recognition.
+              I&apos;m currently pursuing a Bachelor of Technology in Computer Science Engineering 
+              at GIFT Autonomous, Bhubaneswar — with a strong focus on AI/ML research and 
+              applied engineering. I&apos;ve had the privilege of completing research and technical 
+              internships at the National Institute of Technology (NIT) Rourkela and the 
+              Integrated Test Range, DRDO — where I worked on cutting-edge LLM and 
+              Retrieval-Augmented Generation (RAG) systems for real-world applications.
+
+              My technical interests lie at the intersection of Large Language Models, RAG pipelines, 
+              and Deep Learning. I&apos;ve already translated that passion into published work — 
+              authoring a research paper on advanced Facial Emotion Recognition, featured in 
+              IEEE Xplore.
             </p>
             <p className="text-body text-gray-300 mb-6 leading-relaxed">
-              Beyond My research,i'm  deeply invested in coding and software development, specializing in 
-              building scalable, intelligent systems.  i'm
-              three-time National Level Hackathon Champion, securing top honors at major events. His academic 
-              excellence is further underscored by multiple professional recognitions, including NPTEL Silver 
-              Badges in Machine Learning, Cloud Computing, and Data Structures and Algorithms from IIT Madras 
-              and IIT Kharagpur.
+              Beyond research, I&apos;m deeply invested in building scalable, intelligent software. 
+              As a three-time National-Level Hackathon Champion, I thrive under pressure and love 
+              turning ideas into working systems fast. My academic journey is further backed by 
+              NPTEL Silver Badges in Machine Learning, Cloud Computing, and Data Structures &amp; 
+              Algorithms — certified by IIT Madras and IIT Kharagpur.
             </p>
 
             <div className="mb-6">
