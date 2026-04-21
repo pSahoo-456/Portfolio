@@ -5,8 +5,8 @@ import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Achievements from '@/components/Achievements';
+import Certifications from '@/components/Certifications';
 import Education from '@/components/Education';
-import Seminars from '@/components/Seminars';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
@@ -23,8 +23,8 @@ export default function Home() {
         <Experience />
         <Projects />
         <Achievements />
+        <Certifications />
         <Education />
-        <Seminars />
         <Contact />
       </main>
       <Footer />

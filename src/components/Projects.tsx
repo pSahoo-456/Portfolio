@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink } from 'lucide-react';
+import { X, ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/data/portfolio';
+import Image from 'next/image';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -35,41 +36,68 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(0, 212, 255, 0.5)' }}
               onClick={() => setSelectedProject(index)}
-              className="p-6 bg-navy-light rounded-xl border border-gray-800 cursor-pointer card-glow hover:border-cyan/50 transition-all duration-300"
+              className="bg-navy-light rounded-xl border border-gray-800 cursor-pointer card-glow hover:border-cyan/50 transition-all duration-300 overflow-hidden group"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-white flex-1">{project.title}</h3>
-                {project.ieee && (
-                  <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-bold border border-yellow-500/50">
-                    IEEE Published ⭐
-                  </span>
+              {project.thumbnail && (
+                <div className="relative w-full h-52 overflow-hidden">
+                  <Image
+                    src={project.thumbnail}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-light via-transparent to-transparent opacity-60" />
+                </div>
+              )}
+              
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-xl font-bold text-white flex-1">{project.title}</h3>
+                  {project.ieee && (
+                    <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-bold border border-yellow-500/50">
+                      IEEE Published ⭐
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-gray-300 text-body mb-4 line-clamp-3">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.badges.map((badge) => (
+                    <span
+                      key={badge}
+                      className="px-3 py-1 bg-cyan/10 text-cyan rounded-full text-xs font-mono border border-cyan/30"
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 bg-navy-lighter text-gray-400 rounded text-xs font-mono"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-violet/20 text-violet rounded-lg text-sm font-mono border border-violet/40 hover:bg-violet/30 hover:border-violet/60 transition-all duration-300 mt-4"
+                  >
+                    <Github size={16} />
+                    View Code
+                  </a>
                 )}
-              </div>
-
-              <p className="text-gray-300 text-body mb-4 line-clamp-3">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.badges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="px-3 py-1 bg-cyan/10 text-cyan rounded-full text-xs font-mono border border-cyan/30"
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 bg-navy-lighter text-gray-400 rounded text-xs font-mono"
-                  >
-                    {tech}
-                  </span>
-                ))}
               </div>
             </motion.div>
           ))}
@@ -148,3 +176,4 @@ export default function Projects() {
     </section>
   );
 }
+

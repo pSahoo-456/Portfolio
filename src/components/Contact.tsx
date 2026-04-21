@@ -103,6 +103,7 @@ export default function Contact() {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 bg-navy-light border border-gray-800 rounded-lg text-white focus:border-cyan focus:outline-none focus:shadow-[0_0_15px_rgba(0,212,255,0.3)] transition-all duration-300"
                   placeholder="Your Name"
+                  suppressHydrationWarning
                 />
               </div>
 
@@ -115,6 +116,7 @@ export default function Contact() {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-3 bg-navy-light border border-gray-800 rounded-lg text-white focus:border-cyan focus:outline-none focus:shadow-[0_0_15px_rgba(0,212,255,0.3)] transition-all duration-300"
                   placeholder="your.email@example.com"
+                  suppressHydrationWarning
                 />
               </div>
 
@@ -135,6 +137,7 @@ export default function Contact() {
                 whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(0, 212, 255, 0.6)' }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full px-6 py-4 bg-cyan text-navy font-bold rounded-lg transition-all duration-300 hover:bg-cyan-light flex items-center justify-center gap-2"
+                suppressHydrationWarning
               >
                 <Send size={20} />
                 {submitted ? 'Message Sent!' : 'Send Message'}

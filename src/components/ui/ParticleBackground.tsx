@@ -19,6 +19,7 @@ export default function ParticleBackground() {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    const context = ctx;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -51,7 +52,7 @@ export default function ParticleBackground() {
     }
 
     function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, i) => {
         particle.x += particle.vx;
@@ -60,10 +61,10 @@ export default function ParticleBackground() {
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 212, 255, 0.5)';
-        ctx.fill();
+        context.beginPath();
+        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        context.fillStyle = 'rgba(0, 212, 255, 0.5)';
+        context.fill();
 
         for (let j = i; j < particles.length; j++) {
           const dx = particles[j].x - particle.x;
@@ -71,12 +72,12 @@ export default function ParticleBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < connectionDistance) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 212, 255, ${0.2 * (1 - distance / connectionDistance)})`;
-            ctx.lineWidth = 1;
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
+            context.beginPath();
+            context.strokeStyle = `rgba(0, 212, 255, ${0.2 * (1 - distance / connectionDistance)})`;
+            context.lineWidth = 1;
+            context.moveTo(particle.x, particle.y);
+            context.lineTo(particles[j].x, particles[j].y);
+            context.stroke();
           }
         }
 
@@ -86,12 +87,12 @@ export default function ParticleBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < mouseDistance) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(124, 58, 237, ${0.3 * (1 - distance / mouseDistance)})`;
-            ctx.lineWidth = 1;
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.stroke();
+            context.beginPath();
+            context.strokeStyle = `rgba(124, 58, 237, ${0.3 * (1 - distance / mouseDistance)})`;
+            context.lineWidth = 1;
+            context.moveTo(particle.x, particle.y);
+            context.lineTo(mouse.x, mouse.y);
+            context.stroke();
           }
         }
       });

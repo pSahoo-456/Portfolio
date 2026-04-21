@@ -15,7 +15,7 @@ const knowledgeBase: Record<string, string> = {
   greeting: `Hi! 👋 I'm Prakash's AI assistant. Ask me about his skills, projects, experience, or achievements!`,
   who: `${personalInfo.name} is a final-year B.Tech CSE student at GIFT Autonomous, Bhubaneswar, specializing in AI/ML. He has interned at DRDO, NIT Rourkela, and IIG Varsity.`,
   about: personalInfo.bio,
-  skills: `Prakash is proficient in:\n• Programming: ${skills.Programming.join(', ')}\n• ML/AI: ${skills['ML/AI'].join(', ')}\n• LLM & RAG: ${skills['LLM & RAG'].join(', ')}\n• And more in Data, Web/APIs, Tools, Databases, and Cloud!`,
+  skills: `Prakash is proficient in:\n• Languages: ${skills.Languages.join(', ')}\n• ML/AI: ${skills['ML/AI'].join(', ')}\n• LLM & Agentic AI: ${skills['LLM & Agentic AI'].join(', ')}\n• Cloud & Tools: ${skills['Cloud & Tools'].join(', ')}\n• Database: ${skills.Database.join(', ')}`,
   projects: `Prakash has worked on 4 major projects:\n1. AI-Powered Tender Evaluation System (RAG, LangChain)\n2. Enhanced Facial Emotion Recognition (IEEE Published)\n3. AI-Powered Air Pollution Monitoring\n4. Contact Management System`,
   experience: `Prakash has 3 internships:\n1. DRDO-ITR: AI/ML Intern (Aug 2025 - Feb 2026)\n2. NIT Rourkela: AI/ML Research Intern (May - Jul 2024)\n3. IIG Varsity: Java Developer Intern (Jul - Aug 2023)`,
   education: `${personalInfo.name} is pursuing B.Tech CSE at GIFT Autonomous (2022-2026) with 8.82 CGPA. He completed 12th with 88% and Matriculation with 76%.`,
@@ -83,11 +83,11 @@ export default function Chatbot() {
     }
 
     if (lowerMessage.includes('python') || lowerMessage.includes('java') || lowerMessage.includes('programming')) {
-      return `Prakash is proficient in ${skills.Programming.join(', ')}. He also has extensive experience with ML/AI frameworks like ${skills['ML/AI'].slice(0, 3).join(', ')}.`;
+      return `Prakash is proficient in ${skills.Languages.join(', ')}. He also has extensive experience with ML/AI frameworks like ${skills['ML/AI'].slice(0, 3).join(', ')}.`;
     }
 
     if (lowerMessage.includes('langchain') || lowerMessage.includes('llm') || lowerMessage.includes('llama')) {
-      return `Prakash specializes in LLM & RAG technologies: ${skills['LLM & RAG'].join(', ')}. He built production RAG systems at DRDO!`;
+      return `Prakash specializes in LLM & Agentic AI technologies: ${skills['LLM & Agentic AI'].join(', ')}. He built production RAG systems at DRDO!`;
     }
 
     return `I'm not sure about that specific detail, but you can email Prakash directly at ${personalInfo.email} or check out his LinkedIn at ${personalInfo.linkedin} for more information!`;
